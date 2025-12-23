@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://cqhyk8gt4q76m"]
+[gd_scene load_steps=22 format=4 uid="uid://cqhyk8gt4q76m"]
 
 [ext_resource type="Texture2D" uid="uid://cyn02p8ivu1sp" path="res://assets/images/map/pixelArtTopDown/TX Tileset Wall.png" id="1_b66xu"]
 [ext_resource type="Texture2D" uid="uid://d27pmpf5cwx2y" path="res://assets/images/map/pixelArtTopDown/TX Tileset Grass.png" id="2_ck5yc"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://ceeqar2uaxojm" path="res://assets/images/map/pixelArtTopDown/TX Props.png" id="5_s0cu0"]
 [ext_resource type="Texture2D" uid="uid://wrjta2fr7la" path="res://assets/images/map/pixelArtTopDown/TX Plant.png" id="6_o5bow"]
 [ext_resource type="Texture2D" uid="uid://cx8aoa30uk7mx" path="res://assets/images/map/gpt/stone.png" id="7_s0cu0"]
+[ext_resource type="Script" uid="uid://b42yuupgik4hl" path="res://src/modules/map/scripts/door_range.gd" id="8_o5bow"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t52l5"]
 texture = ExtResource("1_b66xu")
@@ -1097,6 +1098,9 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_lurij")
 sources/3 = SubResource("TileSetAtlasSource_o5bow")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s0cu0"]
+size = Vector2(33, 19)
+
 [node name="TileMap" type="Node2D"]
 
 [node name="GroundLayer" type="TileMapLayer" parent="."]
@@ -1120,3 +1124,13 @@ tile_set = SubResource("TileSet_qhwib")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0, 0, 0, 1)
+
+[node name="DoorRange" type="Area2D" parent="."]
+script = ExtResource("8_o5bow")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorRange"]
+position = Vector2(368.5, 7.5)
+shape = SubResource("RectangleShape2D_s0cu0")
+
+[connection signal="body_entered" from="DoorRange" to="DoorRange" method="_on_body_entered"]
+[connection signal="body_exited" from="DoorRange" to="DoorRange" method="_on_body_exited"]

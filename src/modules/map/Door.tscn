@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpg8wjrqliot7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ykuh4"]
+
+[node name="DoorRange" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, 4)
+shape = SubResource("RectangleShape2D_ykuh4")
