@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @export var speed: float
 
+var have_key = false
 func _ready() -> void:
 	speed = 150
 
