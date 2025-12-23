@@ -1,7 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://clb2p2xowc8v8"]
+[gd_scene load_steps=18 format=3 uid="uid://clb2p2xowc8v8"]
 
 [ext_resource type="Texture2D" uid="uid://dpt31omk3qss0" path="res://assets/images/player_spritesheet.png" id="1_ej1fq"]
 [ext_resource type="Script" uid="uid://npe7hmpvp2v" path="res://src/modules/player/scripts/player.gd" id="1_w7btl"]
+[ext_resource type="PackedScene" uid="uid://34dntob1nxlc" path="res://src/modules/bomb/Bomb.tscn" id="2_gpkhd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w7btl"]
 atlas = ExtResource("1_ej1fq")
@@ -111,10 +112,11 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ej1fq"]
-size = Vector2(31, 24)
+size = Vector2(18, 24)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_w7btl")
+bomb_scene = ExtResource("2_gpkhd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_cmin6")
@@ -122,9 +124,15 @@ animation = &"move_up"
 frame = 2
 frame_progress = 0.7178161
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 7)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["player"]]
+position = Vector2(0, 7)
 shape = SubResource("RectangleShape2D_ej1fq")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
+
+[node name="BombHoldPoint" type="Marker2D" parent="."]
+position = Vector2(-1, -21)
+
+[node name="BombDropPoint" type="Marker2D" parent="."]
+position = Vector2(0, 7)
