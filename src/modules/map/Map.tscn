@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://cqhyk8gt4q76m"]
+[gd_scene load_steps=23 format=4 uid="uid://cqhyk8gt4q76m"]
 
 [ext_resource type="Texture2D" uid="uid://cyn02p8ivu1sp" path="res://assets/images/map/pixelArtTopDown/TX Tileset Wall.png" id="1_b66xu"]
 [ext_resource type="Texture2D" uid="uid://d27pmpf5cwx2y" path="res://assets/images/map/pixelArtTopDown/TX Tileset Grass.png" id="2_ck5yc"]
@@ -963,6 +963,9 @@ sources/0 = SubResource("TileSetAtlasSource_s0cu0")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s0cu0"]
 size = Vector2(33, 19)
 
+[sub_resource type="LabelSettings" id="LabelSettings_o5bow"]
+outline_size = 4
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lurij"]
 texture = ExtResource("1_b66xu")
 texture_region_size = Vector2i(32, 32)
@@ -1121,6 +1124,13 @@ script = ExtResource("8_o5bow")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DoorLayer/DoorRange"]
 position = Vector2(368.5, 7.5)
 shape = SubResource("RectangleShape2D_s0cu0")
+
+[node name="Balloon" type="Label" parent="DoorLayer/DoorRange"]
+offset_left = 300.0
+offset_top = -49.0
+offset_right = 340.0
+offset_bottom = -26.0
+label_settings = SubResource("LabelSettings_o5bow")
 
 [node name="UnbrekableObstacleLayer" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAKAAAAAwAAAAAAAAAKAAEAAwAAAAAAAAAKAAMAAwAAAAAAAAAHAAEAAwAAAAAAAAAHAAIAAwAAAAAAAAAJAAEAAwAAAAAAAAAFAAAAAwAAAAAAAAAFAAEAAwAAAAAAAAAFAAIAAwAAAAAAAAAHAAMAAwAAAAAAAAAJAAUAAwAAAAAAAAAKAAUAAwAAAAAAAAAIAAUAAwAAAAAAAAAHAAUAAwAAAAAAAAAFAAMAAwAAAAAAAAAEAAMAAwAAAAAAAAADAAMAAwAAAAAAAAADAAQAAwAAAAAAAAADAAUAAwAAAAAAAAAFAAQAAwAAAAAAAAAFAAUAAwAAAAAAAAACAAUAAwAAAAAAAAACAAMAAwAAAAAAAAACAAEAAwAAAAAAAAADAAEAAwAAAAAAAAABAAEAAwAAAAAAAAABAAIAAwAAAAAAAAABAAMAAwAAAAAAAAAGAAEAAwAAAAAAAAAIAAMAAwAAAAAAAAALAAMAAwAAAAAAAAAKAAYAAwAAAAAAAAAKAAcAAwAAAAAAAAAKAAgAAwAAAAAAAAAIAAYAAwAAAAAAAAAIAAcAAwAAAAAAAAAIAAgAAwAAAAAAAAAIAAkAAwAAAAAAAAABAAUAAwAAAAAAAAAGAAcAAwAAAAAAAAAHAAcAAwAAAAAAAAAEAAcAAwAAAAAAAAAGAAgAAwAAAAAAAAAEAAgAAwAAAAAAAAAEAAkAAwAAAAAAAAACAAcAAwAAAAAAAAABAAcAAwAAAAAAAAACAAgAAwAAAAAAAAABAAYAAwAAAAAAAAABAAgAAwAAAAAAAAA=")
