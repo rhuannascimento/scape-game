@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://lqyjy81bkqix"]
+
+[ext_resource type="Texture2D" uid="uid://ceeqar2uaxojm" path="res://assets/images/map/pixelArtTopDown/TX Props.png" id="1_l8mi2"]
+[ext_resource type="Script" uid="uid://ds7x75fs0lq03" path="res://src/modules/barrel/scripts/barrel.gd" id="1_n30st"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n30st"]
+atlas = ExtResource("1_l8mi2")
+region = Rect2(96, 30, 32, 30)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pxx1j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n30st")
+}],
+"loop": true,
+"name": &"static",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l8mi2"]
+size = Vector2(32, 30)
+
+[node name="Barrel" type="Area2D"]
+input_pickable = false
+script = ExtResource("1_n30st")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_pxx1j")
+animation = &"static"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_l8mi2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

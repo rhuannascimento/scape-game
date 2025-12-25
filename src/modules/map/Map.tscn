@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://cqhyk8gt4q76m"]
+[gd_scene load_steps=24 format=4 uid="uid://cqhyk8gt4q76m"]
 
 [ext_resource type="Texture2D" uid="uid://cyn02p8ivu1sp" path="res://assets/images/map/pixelArtTopDown/TX Tileset Wall.png" id="1_b66xu"]
 [ext_resource type="Texture2D" uid="uid://d27pmpf5cwx2y" path="res://assets/images/map/pixelArtTopDown/TX Tileset Grass.png" id="2_ck5yc"]
@@ -7,7 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://ceeqar2uaxojm" path="res://assets/images/map/pixelArtTopDown/TX Props.png" id="5_s0cu0"]
 [ext_resource type="Texture2D" uid="uid://wrjta2fr7la" path="res://assets/images/map/pixelArtTopDown/TX Plant.png" id="6_o5bow"]
 [ext_resource type="Texture2D" uid="uid://cx8aoa30uk7mx" path="res://assets/images/map/gpt/stone.png" id="7_s0cu0"]
-[ext_resource type="Script" uid="uid://b42yuupgik4hl" path="res://src/modules/map/scripts/door_range.gd" id="8_o5bow"]
+[ext_resource type="Script" uid="uid://diul2ccy8g2n6" path="res://src/modules/map/scripts/breakableObstacleLayer.gd" id="8_breakable"]
+[ext_resource type="Script" uid="uid://b42yuupgik4hl" path="res://src/modules/map/scripts/door_range.gd" id="9_door_range"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t52l5"]
 texture = ExtResource("1_b66xu")
@@ -1096,7 +1097,7 @@ texture_region_size = Vector2i(32, 32)
 texture = ExtResource("7_s0cu0")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-14.795584, -15.085306, 15.015884, -15.076256, 14.934393, 14.662783, -14.861984, 14.780478)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 
 [sub_resource type="TileSet" id="TileSet_qhwib"]
 tile_size = Vector2i(32, 32)
@@ -1119,7 +1120,7 @@ tile_map_data = PackedByteArray("AAAVAPz/AAABAAYAAAAVAP3/AAABAAcAAAAVAP7/AAABAAg
 tile_set = SubResource("TileSet_o5bow")
 
 [node name="DoorRange" type="Area2D" parent="DoorLayer"]
-script = ExtResource("8_o5bow")
+script = ExtResource("9_door_range")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DoorLayer/DoorRange"]
 position = Vector2(368.5, 7.5)
@@ -1137,7 +1138,11 @@ tile_map_data = PackedByteArray("AAAKAAAAAwAAAAAAAAAKAAEAAwAAAAAAAAAKAAMAAwAAAAA
 tile_set = SubResource("TileSet_qhwib")
 
 [node name="BrekableObstacleLayer" type="TileMapLayer" parent="."]
+modulate = Color(2.907523, 0, 0, 1)
+self_modulate = Color(0.36313578, 0.17487992, 0.14798623, 1)
+tile_map_data = PackedByteArray("AAAJAAcAAwAAAAAAAAA=")
 tile_set = SubResource("TileSet_qhwib")
+script = ExtResource("8_breakable")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0, 0, 0, 1)
