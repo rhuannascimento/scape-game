@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfjkubgmwmi3m"]
+
+[ext_resource type="Texture2D" uid="uid://cxi3vtdn11kr" path="res://assets/images/ui/pause_background.png" id="1_ga4y4"]
+[ext_resource type="Script" uid="uid://bowfi17timkio" path="res://src/modules/ui/pause/scripts/pause.gd" id="1_qbp6d"]
+
+[node name="Pause" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qbp6d")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1150.0
+offset_bottom = 648.0
+texture = ExtResource("1_ga4y4")
+expand_mode = 1
+
+[node name="MenuContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -71.00003
+offset_top = 120.0
+offset_right = 87.0
+offset_bottom = 186.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9797889, 1.0297198)
+
+[node name="Back" type="Button" parent="MenuContainer"]
+layout_mode = 2
+text = "Voltar ao jogo"
+
+[node name="BackToMenu" type="Button" parent="MenuContainer"]
+layout_mode = 2
+text = "Voltar para o menu"
+
+[connection signal="pressed" from="MenuContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="MenuContainer/BackToMenu" to="." method="_on_back_to_menu_pressed"]

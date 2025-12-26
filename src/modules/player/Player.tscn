@@ -1,6 +1,6 @@
-[gd_scene load_steps=19 format=3 uid="uid://clb2p2xowc8v8"]
+[gd_scene load_steps=20 format=3 uid="uid://clb2p2xowc8v8"]
 
-[ext_resource type="Texture2D" uid="uid://dpt31omk3qss0" path="res://assets/images/player_spritesheet.png" id="1_ej1fq"]
+[ext_resource type="Texture2D" uid="uid://dpt31omk3qss0" path="res://assets/images/player/player_spritesheet.png" id="1_ej1fq"]
 [ext_resource type="Script" uid="uid://npe7hmpvp2v" path="res://src/modules/player/scripts/player.gd" id="1_w7btl"]
 [ext_resource type="PackedScene" uid="uid://34dntob1nxlc" path="res://src/modules/bomb/Bomb.tscn" id="2_gpkhd"]
 
@@ -114,7 +114,6 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ej1fq"]
 size = Vector2(18, 24)
 
-
 [sub_resource type="Gradient" id="Gradient_w7btl"]
 offsets = PackedFloat32Array(0.40728477, 0.71854305)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -135,7 +134,6 @@ sprite_frames = SubResource("SpriteFrames_cmin6")
 animation = &"move_up"
 frame = 2
 frame_progress = 0.7178161
-
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["player"]]
 position = Vector2(0, 7)

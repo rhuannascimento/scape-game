@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=3 uid="uid://cksq2v67g8b57"]
+
+[ext_resource type="Script" uid="uid://choj78eibdr7v" path="res://src/modules/ui/vicotry/scripts/victory.gd" id="1_s4mco"]
+[ext_resource type="Texture2D" uid="uid://usy3ex3bhqtu" path="res://assets/images/ui/victory_background.png" id="2_ujpwj"]
+[ext_resource type="AudioStream" uid="uid://bb13e8xdnale7" path="res://assets/sounds/gameStage/goodresult-82807.mp3" id="3_ht1ir"]
+
+[node name="Victory" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s4mco")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1150.0
+offset_bottom = 648.0
+texture = ExtResource("2_ujpwj")
+expand_mode = 1
+
+[node name="MenuContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -71.00003
+offset_top = 120.0
+offset_right = 87.0
+offset_bottom = 186.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9797889, 1.0297198)
+
+[node name="TryAgain" type="Button" parent="MenuContainer"]
+layout_mode = 2
+text = "Jogar novamente"
+
+[node name="BackToMenu" type="Button" parent="MenuContainer"]
+layout_mode = 2
+text = "Voltar para o menu"
+
+[node name="SFX_Victory" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ht1ir")
+volume_db = -17.244
+
+[connection signal="pressed" from="MenuContainer/TryAgain" to="." method="_on_try_again_pressed"]
+[connection signal="pressed" from="MenuContainer/BackToMenu" to="." method="_on_back_to_menu_pressed"]

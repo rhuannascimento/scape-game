@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=3 uid="uid://34dntob1nxlc"]
 
-[ext_resource type="Texture2D" uid="uid://bv05fuen4wy8x" path="res://assets/images/bomb_tiles.png" id="1_32fse"]
+[ext_resource type="Texture2D" uid="uid://bv05fuen4wy8x" path="res://assets/images/bomb/bomb_tiles.png" id="1_32fse"]
 [ext_resource type="Script" uid="uid://wsb0mdei2g5f" path="res://src/modules/bomb/scripts/bomb.gd" id="1_j3xbt"]
 [ext_resource type="AudioStream" uid="uid://r8nbopngnfgc" path="res://assets/sounds/bomb/explosion.wav" id="3_xrhuo"]
 [ext_resource type="AudioStream" uid="uid://bjhpbk8w860p" path="res://assets/sounds/bomb/put_item-83043.mp3" id="4_k6mqe"]

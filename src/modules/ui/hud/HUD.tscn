@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://cil5ds7tgian3"]
+
+[ext_resource type="Script" uid="uid://o1f28cfsbqv2" path="res://src/modules/ui/hud/scripts/hud.gd" id="1_5mnh4"]
+[ext_resource type="AudioStream" uid="uid://behdbxwrihuqf" path="res://assets/sounds/gameStage/slow-cinematic-clock-ticking-357979.mp3" id="2_5epce"]
+[ext_resource type="PackedScene" uid="uid://cfjkubgmwmi3m" path="res://src/modules/ui/pause/Pause.tscn" id="3_demwa"]
+
+[node name="Hud" type="CanvasLayer"]
+script = ExtResource("1_5mnh4")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TimerLabel" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 40.0
+offset_right = 20.0
+offset_bottom = 63.0
+grow_horizontal = 2
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="SFX_SlowClock" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_5epce")
+volume_db = -18.322
+
+[node name="Pause" parent="." instance=ExtResource("3_demwa")]

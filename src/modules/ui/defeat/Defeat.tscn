@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=3 uid="uid://byghau1bvn4bc"]
+
+[ext_resource type="Texture2D" uid="uid://dtyqmltu3j7p2" path="res://assets/images/ui/defeat_background.png" id="1_eyqpw"]
+[ext_resource type="Script" uid="uid://cuhcusikaloq0" path="res://src/modules/ui/defeat/scripts/defeat.gd" id="1_jtv02"]
+[ext_resource type="AudioStream" uid="uid://1gi4okf1bao3" path="res://assets/sounds/gameStage/fiasco-154915.mp3" id="3_b1iwn"]
+
+[node name="Defeat" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jtv02")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1150.0
+offset_bottom = 648.0
+texture = ExtResource("1_eyqpw")
+expand_mode = 1
+
+[node name="MenuContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -71.00003
+offset_top = 120.0
+offset_right = 87.0
+offset_bottom = 186.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9797889, 1.0297198)
+
+[node name="TryAgain" type="Button" parent="MenuContainer"]
+layout_mode = 2
+text = "Tentar novamente"
+
+[node name="BackToMenu" type="Button" parent="MenuContainer"]
+layout_mode = 2
+text = "Voltar para o menu"
+
+[node name="SFX_Defeat" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_b1iwn")
+volume_db = -17.244
+
+[connection signal="pressed" from="MenuContainer/TryAgain" to="." method="_on_try_again_pressed"]
+[connection signal="pressed" from="MenuContainer/BackToMenu" to="." method="_on_back_to_menu_pressed"]
