@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://34dntob1nxlc"]
+[gd_scene load_steps=18 format=3 uid="uid://34dntob1nxlc"]
 
 [ext_resource type="Texture2D" uid="uid://bv05fuen4wy8x" path="res://assets/images/bomb_tiles.png" id="1_32fse"]
 [ext_resource type="Script" uid="uid://wsb0mdei2g5f" path="res://src/modules/bomb/scripts/bomb.gd" id="1_j3xbt"]
 [ext_resource type="AudioStream" uid="uid://r8nbopngnfgc" path="res://assets/sounds/bomb/explosion.wav" id="3_xrhuo"]
+[ext_resource type="AudioStream" uid="uid://bjhpbk8w860p" path="res://assets/sounds/bomb/put_item-83043.mp3" id="4_k6mqe"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j3xbt"]
 atlas = ExtResource("1_32fse")
@@ -50,11 +51,6 @@ region = Rect2(144, 288, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gliae"]
 animations = [{
-"frames": [],
-"loop": true,
-"name": &"arm",
-"speed": 5.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_j3xbt")
@@ -117,5 +113,10 @@ disabled = true
 
 [node name="SFX_Explosion" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_xrhuo")
+volume_db = -24.694
+
+[node name="SFX_PutItem" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_k6mqe")
+volume_db = -16.893
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

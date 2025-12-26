@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://lqyjy81bkqix"]
+[gd_scene load_steps=9 format=3 uid="uid://lqyjy81bkqix"]
 
 [ext_resource type="Texture2D" uid="uid://ceeqar2uaxojm" path="res://assets/images/map/pixelArtTopDown/TX Props.png" id="1_l8mi2"]
 [ext_resource type="Script" uid="uid://ds7x75fs0lq03" path="res://src/modules/barrel/scripts/barrel.gd" id="1_n30st"]
+[ext_resource type="AudioStream" uid="uid://dfk7726b2tc3x" path="res://assets/sounds/barrel/chest-opening-87569.mp3" id="3_pxx1j"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n30st"]
 atlas = ExtResource("1_l8mi2")
@@ -48,6 +49,10 @@ frame_progress = 1.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 14)
 shape = SubResource("RectangleShape2D_l8mi2")
+
+[node name="SFX_ChestOpening" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_pxx1j")
+volume_db = -8.621
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

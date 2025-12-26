@@ -8,6 +8,6 @@
 [node name="TileMap" parent="." instance=ExtResource("1_hk4rc")]
 
 [node name="Player" parent="." instance=ExtResource("2_chrbn")]
-position = Vector2(142, 72)
+position = Vector2(143, 71)
 
 [editable path="TileMap"]

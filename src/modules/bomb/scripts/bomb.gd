@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var explosion_radius := 2
 
 @onready var explosion_audio = $SFX_Explosion
+@onready var put_item_audio = $SFX_PutItem
 
 var breakable_layer: TileMapLayer = null
 var carrier: Node2D = null
@@ -31,6 +32,7 @@ func detach(drop_global_position: Vector2):
 	reparent(get_tree().current_scene)
 	global_position = drop_global_position
 	carrier = null
+	put_item_audio.play()
 	$CollisionShape2D.disabled = false
 	
 	start_pulsing()
@@ -41,6 +43,7 @@ func start_pulsing():
 
 func start_explosion():
 	state = State.exploding
+	$CollisionShape2D.set_deferred("disabled", true)
 	$AnimatedSprite2D.play("explosion")
 	explosion_audio.play()
 	breakable_layer.explode_at_world_position(global_position, explosion_radius)
