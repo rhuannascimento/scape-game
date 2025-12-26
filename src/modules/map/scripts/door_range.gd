@@ -2,7 +2,11 @@ extends Area2D
 
 var can_enter = false
 var player_ref = null
+var porta_aberta = false
+var interagindo = false
 @onready var balao_label: Label = $Balloon
+@onready var open_audio = $SFX_Open
+@onready var close_audio = $SFX_Close
 
 func _ready() -> void:
 	balao_label.visible = false
@@ -12,8 +16,9 @@ func _on_body_entered(body) -> void:
 		can_enter = true
 		player_ref = body
 		
-		balao_label.text = "Aperte ENTER"
-		balao_label.visible = true
+		if not porta_aberta:
+			balao_label.text = "Aperte ENTER"
+			balao_label.visible = true
 		
 
 func _on_body_exited(body) -> void:
@@ -24,15 +29,22 @@ func _on_body_exited(body) -> void:
 		balao_label.visible = false
 
 func key_check():
+	if porta_aberta or interagindo:
+		return
+	interagindo = true
+	
 	if player_ref.have_key == true:
+		porta_aberta = true
+		open_audio.play()
 		balao_label.text = "Porta Aberta!"
-		print("Porta aberta")
+		await open_audio.finished
 	else:
+		close_audio.play()
 		balao_label.text = "Você precisa da chave!"
-		print("Voce não possui a chave")
 		await get_tree().create_timer(2.0).timeout
 		if can_enter:
 			balao_label.text = "Aperte ENTER"
+		interagindo = false
 	
 
 func _input(event: InputEvent) -> void:

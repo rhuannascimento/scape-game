@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bfkwopbkl20gi"]
+[gd_scene load_steps=5 format=3 uid="uid://bfkwopbkl20gi"]
 
 [ext_resource type="Script" uid="uid://c56rnsr87wj6u" path="res://src/modules/key/scripts/key.gd" id="1_5x57a"]
 [ext_resource type="Texture2D" uid="uid://n5mpilb1cc1p" path="res://assets/images/key/KeyIcons.png" id="1_vq0po"]
+[ext_resource type="AudioStream" uid="uid://dpncs2q2eavxv" path="res://assets/sounds/key/pickup.wav" id="3_8g07x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vq0po"]
 size = Vector2(20, 21)
@@ -18,5 +19,8 @@ region_rect = Rect2(0, 0, 31.333328, 32)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_vq0po")
+
+[node name="SFX_Pegar" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_8g07x")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

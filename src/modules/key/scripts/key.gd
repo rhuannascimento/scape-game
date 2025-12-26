@@ -1,11 +1,14 @@
 extends Area2D
 
 
-
+@onready var audio = $SFX_Pegar
 
 func _on_body_entered(body) -> void:
 	if body.name == "Player":
-		print("Tem chave? ", body.have_key)
 		body.have_key = true
-		print("Tem chave? ", body.have_key)
+		visible = false
+		audio.play()
+		$CollisionShape2D.set_deferred("disabled", true)
+		await audio.finished
 		queue_free()
+		
