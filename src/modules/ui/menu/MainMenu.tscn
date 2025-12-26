@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2plfn33wq7u2"]
+
+[ext_resource type="Script" uid="uid://csr8k1v0u2ec1" path="res://src/modules/ui/menu/scripts/mainMenu.gd" id="1_2thr4"]
+[ext_resource type="Texture2D" uid="uid://23v0o6gpnht1" path="res://assets/images/menu_background.png" id="2_plvyv"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_2thr4")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1150.0
+offset_bottom = 648.0
+texture = ExtResource("2_plvyv")
+expand_mode = 1
+
+[node name="MenuContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -109.0
+offset_top = -4.9999695
+offset_right = 126.0
+offset_bottom = 61.00003
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9797889, 1.0297198)
+
+[node name="PlayButton" type="Button" parent="MenuContainer"]
+layout_mode = 2
+text = "Jogar"
+
+[node name="QuitButton" type="Button" parent="MenuContainer"]
+layout_mode = 2
+text = "Sair"
+
+[connection signal="pressed" from="MenuContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="MenuContainer/QuitButton" to="." method="_on_quit_button_pressed"]
