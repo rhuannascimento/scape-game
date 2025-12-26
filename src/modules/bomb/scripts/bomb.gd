@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var explosion_time := 1.5
-@export var explosion_radius := 64
+@export var explosion_radius := 2
 
 var breakable_layer: TileMapLayer = null
 var carrier: Node2D = null
@@ -40,7 +40,7 @@ func start_pulsing():
 func start_explosion():
 	state = State.exploding
 	$AnimatedSprite2D.play("explosion")
-	breakable_layer.explode_at_world_position(global_position)
+	breakable_layer.explode_at_world_position(global_position, explosion_radius)
 
 func finish_explosion():
 	queue_free()

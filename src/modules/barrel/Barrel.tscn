@@ -1,19 +1,33 @@
-[gd_scene load_steps=6 format=3 uid="uid://lqyjy81bkqix"]
+[gd_scene load_steps=8 format=3 uid="uid://lqyjy81bkqix"]
 
 [ext_resource type="Texture2D" uid="uid://ceeqar2uaxojm" path="res://assets/images/map/pixelArtTopDown/TX Props.png" id="1_l8mi2"]
 [ext_resource type="Script" uid="uid://ds7x75fs0lq03" path="res://src/modules/barrel/scripts/barrel.gd" id="1_n30st"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n30st"]
 atlas = ExtResource("1_l8mi2")
-region = Rect2(96, 30, 32, 30)
+region = Rect2(96, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pxx1j"]
+atlas = ExtResource("1_l8mi2")
+region = Rect2(96, 64, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1b8q"]
+atlas = ExtResource("1_l8mi2")
+region = Rect2(96, 0, 32, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pxx1j"]
 animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_n30st")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pxx1j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y1b8q")
 }],
-"loop": true,
+"loop": false,
 "name": &"static",
 "speed": 5.0
 }]
@@ -28,8 +42,11 @@ script = ExtResource("1_n30st")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_pxx1j")
 animation = &"static"
+frame = 2
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 14)
 shape = SubResource("RectangleShape2D_l8mi2")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

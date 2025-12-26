@@ -3,14 +3,20 @@ extends Area2D
 var player_inside := false
 var player: Node = null
 
+@onready var animacao = $AnimatedSprite2D
+
+
 func _ready():
 	monitoring = true
 	z_index = 5
+	animacao.frame = 0 
+	animacao.stop()
 
 func _on_body_entered(body):
 	if body.is_in_group("player"):
 		player_inside = true
 		player = body
+		animacao.play("static")
 		give_bomb()
 
 func _on_body_exited(body):
