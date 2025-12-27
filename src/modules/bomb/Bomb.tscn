@@ -96,7 +96,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j3xbt"]
-size = Vector2(4, 4)
+size = Vector2(1, 1)
 
 [node name="Bomb" type="CharacterBody2D"]
 script = ExtResource("1_j3xbt")
