@@ -1,0 +1,107 @@
+[gd_scene load_steps=6 format=3 uid="uid://bnmi77rtrobc"]
+
+[ext_resource type="Script" uid="uid://cnkf8ycoul0u4" path="res://src/modules/credit/scripts/credit.gd" id="1_kowvk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kowvk"]
+line_spacing = 30.0
+
+[sub_resource type="Animation" id="Animation_kowvk"]
+resource_name = "credits"
+length = 30.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 30),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 700), Vector2(0, -1500)]
+}
+
+[sub_resource type="Animation" id="Animation_btrfa"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(450, 700)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q77ii"]
+_data = {
+&"RESET": SubResource("Animation_btrfa"),
+&"credits": SubResource("Animation_kowvk")
+}
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kowvk")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 450.0
+offset_top = 700.0
+offset_right = 1580.0
+offset_bottom = 2101.0002
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "[NOME DO JOGO] Versão: 1.0
+
+DESENVOLVIDO POR:
+
+[Seu Nome]
+
+[Nome do Colega 1]
+
+[Nome do Colega 2]
+
+CONTEXTO: Projeto desenvolvido para a disciplina de [Nome da Matéria] [Nome da Universidade] - [Ano/Semestre] Professor: [Nome do Professor]
+
+CRÉDITOS DE ASSETS (Recursos de Terceiros):
+
+Arte Visual: [Ex: Pacote de Assets \"Industrial\" por Kenney.nl / Link ou Licença CC0]
+
+Efeitos Sonoros: [Ex: Bfxr / Freesound.org]
+
+Música de Fundo: [Título da Música] por [Autor] (Licença CC-BY)
+
+Fontes: [Nome da Fonte] por [Autor]
+
+FERRAMENTAS: Desenvolvido utilizando [Nome da Engine, ex: Godot Engine]. Arte criada/editada em [Ferramenta, ex: Photoshop/Gimp].
+
+AVISO LEGAL: Este projeto tem fins estritamente educacionais e não possui fins lucrativos.
+
+Obrigado por jogar!"
+label_settings = SubResource("LabelSettings_kowvk")
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_q77ii")
+}
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

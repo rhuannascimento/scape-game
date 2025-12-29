@@ -38,7 +38,7 @@ func key_check():
 		open_audio.play()
 		balao_label.text = "Porta Aberta!"
 		await open_audio.finished
-		get_tree().change_scene_to_file("res://src/modules/ui/vicotry/Victory.tscn")
+		get_tree().change_scene_to_file("res://src/modules/credit/Credit.tscn")
 	else:
 		close_audio.play()
 		balao_label.text = "Você precisa da chave!"
