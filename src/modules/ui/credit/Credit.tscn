@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bnmi77rtrobc"]
 
-[ext_resource type="Script" uid="uid://cnkf8ycoul0u4" path="res://src/modules/credit/scripts/credit.gd" id="1_kowvk"]
+[ext_resource type="Script" uid="uid://cnkf8ycoul0u4" path="res://src/modules/ui/credit/scripts/credit.gd" id="1_kowvk"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_kowvk"]
 line_spacing = 30.0

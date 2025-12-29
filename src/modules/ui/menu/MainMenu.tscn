@@ -40,9 +40,14 @@ scale = Vector2(0.9797889, 1.0297198)
 layout_mode = 2
 text = "Jogar"
 
+[node name="CreditButton" type="Button" parent="MenuContainer"]
+layout_mode = 2
+text = "Créditos"
+
 [node name="QuitButton" type="Button" parent="MenuContainer"]
 layout_mode = 2
 text = "Sair"
 
 [connection signal="pressed" from="MenuContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="MenuContainer/CreditButton" to="." method="_on_credit_button_pressed"]
 [connection signal="pressed" from="MenuContainer/QuitButton" to="." method="_on_quit_button_pressed"]
